@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Ivory Hnt | Connect With Me</title>
+    <meta name="title" content="Ivory Hnt | Socials">
+    <meta name="description" content="Find all my social accounts one place.">
+    <meta name="keywords" content="Ivory Hnt, social media, connect, links, developer, contact">
+    <meta name="author" content="Ivory Hnt">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ivoryhnt.dev/links">
+    <meta property="og:title" content="Connect With Me - Ivory Hnt">
+    <meta property="og:description" content="Find all my social accounts one place.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables matching original theme --- */
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #0f0f0f;
+            --text-color: #F0F0F0;
+            --text-secondary: #b0aec0;
+            --accent-color: #A999E5;
+            --highlight-color: #6EE7B7;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- General & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(15, 15, 15, 0.6) 50%, rgba(26, 26, 26, 0.6) 100%);
+            background-size: 400% 400%;
+            animation: liquidFlow 20s ease infinite alternate;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        @keyframes liquidFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--highlight-color);
+            border-color: var(--highlight-color);
+            transform: rotate(360deg);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-color);
+        }
+
+        .back-link i {
+            font-size: 1.2rem;
+        }
+
+        /* --- Main Content --- */
+        main {
+            padding-top: 100px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .links-container {
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* --- Profile Section --- */
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--highlight-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 3rem;
+            color: var(--primary-bg);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(169, 153, 229, 0.3);
+        }
+
+        .profile-avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 40ch;
+            margin: 0 auto;
+        }
+
+        /* --- Social Links --- */
+        .social-links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            border-color: var(--highlight-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+            width: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link-content {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .social-link-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .social-link-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .social-link-arrow {
+            font-size: 1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover .social-link-arrow {
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* Platform-specific colors */
+        .discord-link:hover i { color: #5865F2; }
+        .discord-link:hover { border-color: #5865F2; }
+
+        .reddit-link:hover i { color: #FF4500; }
+        .reddit-link:hover { border-color: #FF4500; }
+
+        .github-link:hover i { color: #ffffff; }
+        .github-link:hover { border-color: #ffffff; }
+
+        .portfolio-link:hover i { color: var(--highlight-color); }
+        .portfolio-link:hover { border-color: var(--highlight-color); }
+
+        .email-link:hover i { color: #EA4335; }
+        .email-link:hover { border-color: #EA4335; }
+
+        .codeberg-link:hover i { color: #2185D0; }
+        .codeberg-link:hover { border-color: #2185D0; }
+
+        /* --- Special Copy Link --- */
+        .copy-link {
+            cursor: pointer;
+        }
+
+        .copy-feedback {
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-50%);
+            background: var(--highlight-color);
+            color: var(--primary-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 3rem 5% 2rem 5%;
+            background: transparent;
+            margin-top: 3rem;
+        }
+
+        .footer-minimal {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-minimal a {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .footer-minimal a:hover {
+            color: var(--highlight-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .links-container {
+                padding: 1rem;
+                max-width: 400px;
+            }
+
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .social-link {
+                padding: 1rem 1.2rem;
+            }
+
+            main {
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-link {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .social-link-content {
+                text-align: center;
+            }
+
+            .social-link i {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="/" class="logo" aria-label="Ivory Hnt Home">.</a>
+            <a href="/" class="back-link" aria-label="Back to Portfolio">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Portfolio</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="links-container">
+            <!-- Profile Section -->
+            <div class="profile-section" data-aos="fade-down">
+                <div class="profile-avatar">
+                    I
+                </div>
+                <h1 class="profile-name">Ivory Hnt</h1>
+                <p class="profile-bio">Web Developer & Designer • Connect with my socials</p>
+            </div>
+
+            <!-- Social Links Grid -->
+            <div class="social-links-grid">
+
+                <!-- Portfolio Link -->
+                <a href="/" class="social-link portfolio-link" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-globe"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">Portfolio</div>
+                        <div class="social-link-description">View my work and projects</div>
+                    </div>
+                    <i class="fas fa-arrow-right social-link-arrow"></i>
+                </a>
+
+                <!-- GitHub Link -->
+                <a href="https://github.com/Ivory-Hnt" target="_blank" rel="noopener noreferrer" class="social-link github-link" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fab fa-github"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">GitHub</div>
+                        <div class="social-link-description">Check out my code repositories</div>
+                    </div>
+                    <i class="fas fa-external-link-alt social-link-arrow"></i>
+                </a>
+
+                <!-- Discord Server -->
+                <a href="https://discord.gg/bwY5cWafJZ" target="_blank" rel="noopener noreferrer" class="social-link discord-link" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-discord"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">Discord Server</div>
+                        <div class="social-link-description">Join our community</div>
+                    </div>
+                    <i class="fas fa-external-link-alt social-link-arrow"></i>
+                </a>
+
+                <!-- Discord DM (Copy username) -->
+                <div class="social-link discord-link copy-link" data-aos="fade-up" data-aos-delay="250" onclick="copyDiscord()">
+                    <i class="fa-solid fa-at"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">Discord DM</div>
+                        <div class="social-link-description">sodiumicecream • Click to copy</div>
+                    </div>
+                    <i class="fas fa-copy social-link-arrow"></i>
+                    <div class="copy-feedback" id="discord-feedback">Copied!</div>
+                </div>
+
+                <!-- Reddit -->
+                <a href="https://www.reddit.com/user/Icy-Rooster4152/" target="_blank" rel="noopener noreferrer" class="social-link reddit-link" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fab fa-reddit"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">Reddit</div>
+                        <div class="social-link-description">Follow me on Reddit</div>
+                    </div>
+                    <i class="fas fa-external-link-alt social-link-arrow"></i>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:ivory@ivoryhnt.dev" class="social-link email-link" data-aos="fade-up" data-aos-delay="350">
+                    <i class="fas fa-envelope"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">Email</div>
+                        <div class="social-link-description">Get in touch professionally</div>
+                    </div>
+                    <i class="fas fa-arrow-right social-link-arrow"></i>
+                </a>
+
+                <!-- Codeberg -->
+                <a href="https://codeberg.org/SodiumIceCream" target="_blank" rel="noopener noreferrer" class="social-link codeberg-link" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-code-branch"></i>
+                    <div class="social-link-content">
+                        <div class="social-link-title">Codeberg</div>
+                        <div class="social-link-description">Open source projects & contributions</div>
+                    </div>
+                    <i class="fas fa-external-link-alt social-link-arrow"></i>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer>
+        <div class="footer-minimal">
+            &copy; 2025 Ivory Hnt • <a href="https://github.com/Ivory-Hnt/sodium-website">View Source</a>
+        </div>
+    </footer>
+
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Local Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 600,
+                once: true,
+                offset: 50,
+                easing: 'ease-out',
+            });
+        });
+
+        // Function to copy Discord username to clipboard
+        function copyDiscord() {
+            const discordUsername = "sodiumicecream";
+            
+            // Create temporary textarea for copying
+            const tempInput = document.createElement('textarea');
+            tempInput.value = discordUsername;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Show feedback
+            const feedback = document.getElementById('discord-feedback');
+            feedback.classList.add('show');
+
+            // Hide feedback after 2 seconds
+            setTimeout(() => {
+                feedback.classList.remove('show');
+            }, 2000);
+        }
+
+        // Add some interactive effects
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                if (!e.target.classList.contains('copy-link')) {
+                    e.target.style.transform = 'translateY(-3px) scale(1.02)';
+                }
+            });
+
+            link.addEventListener('mouseleave', (e) => {
+                if (!e.target.classList.contains('copy-link')) {
+                    e.target.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        // Add click ripple effect
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.1)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 600ms linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
