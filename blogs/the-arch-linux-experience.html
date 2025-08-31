@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivory Hnt | The Arch Linux experience</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables matching main page theme --- */
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #0f0f0f;
+            --text-color: #F0F0F0;
+            --text-secondary: #b0aec0;
+            --accent-color: #A999E5;
+            --highlight-color: #6EE7B7;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- General & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--highlight-color);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Header & Navigation (matching photography page) --- */
+        header {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(15, 15, 15, 0.6) 50%, rgba(26, 26, 26, 0.6) 100%);
+            background-size: 400% 400%;
+            animation: liquidFlow 20s ease infinite alternate;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        @keyframes liquidFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--highlight-color);
+            border-color: var(--highlight-color);
+            transform: rotate(360deg);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-color);
+        }
+
+        .back-link i {
+            font-size: 1.2rem;
+        }
+
+        /* --- Blog Post Specific Styles --- */
+        .blog-post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem 2rem;
+        }
+
+        .blog-post-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .blog-post-meta {
+            font-size: 1rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+        }
+
+        .blog-post-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-post-content h2 {
+            font-size: 2.2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .blog-post-content ul {
+            list-style: disc;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-post-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Footer (matching main page) --- */
+        footer {
+            text-align: center;
+            padding: 10rem 5% 4rem 5%;
+            background: var(--secondary-bg);
+        }
+
+        .footer-content h2 {
+            font-size: 3rem;
+        }
+        .footer-content p {
+            font-size: 1.1rem;
+            max-width: 50ch;
+            margin: 1rem auto 3rem auto;
+        }
+
+        .social-links {
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            background: var(--primary-bg);
+            color: var(--text-secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-links a:hover {
+            color: var(--text-color);
+            background: #2a2a2a;
+            transform: translateY(-3px);
+        }
+
+        .social-links a i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Discord Copy Tooltip */
+        .tooltip {
+            visibility: hidden;
+            background-color: var(--highlight-color);
+            color: var(--primary-bg);
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1;
+            bottom: 140%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        #discord-copy-link:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .blog-post-content {
+                padding: 6rem 1rem 2rem 1rem;
+            }
+
+            .blog-post-content h1 {
+                font-size: 2rem;
+            }
+
+            .blog-post-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .blog-post-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-post-content {
+                padding: 5rem 0.5rem 2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation (matching photography page) -->
+    <header>
+        <nav>
+            <a href="/" class="logo" aria-label="Ivory Hnt Home">.</a>
+            <a href="/" class="back-link" aria-label="Back to Portfolio">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Portfolio</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Blog Post Section -->
+        <section id="blog-post">
+            <div class="blog-post-content" data-aos="fade-up">
+                <h1>Arch Linux. The perfect distro?</h1>
+                <span class="blog-post-meta">July 16, 2025 | Linux | By Ivory Hnt</span>
+
+                <p>
+                    A few months ago I decided to daily drive Linux on my PC instead of just using it on my phone, laptop and server. I installed Arch Linux on my PC and have so far (apart from discord fucking up my zram compression on shutdown) not encountered any issues. It has been noticably smoother than windows, I have gotten more FPS in native linux games and pretty much the same in games ran through wine or proton. I have probably encountered less issues on Arch than I have Windows.
+                </p>
+
+                <p>
+                    So, you might be asking why I chose Arch over other distros such as Debian, Mint, Ubuntu, Fedora or anything else. There is no one answer to this question but a big reason is how customisable it is. I can customise everything down from what manages my audio and the bootloader, to what display manager and desktop environment I want to use. I also love how you get the absolute latest software, before most other distros do, due to the bleeding edge nature of Arch Linux.
+                </p>
+
+                <p>
+                    Instead of going for a popular and well tested desktop environment such as GNOME, KDE Plasma, Cinnamon or XFCE, I chose to use Hyprland. Hyprland is acctually quite popular and is a very customisable tiling window manager for wayland. Instead of being like the rest of the degenerated Arch Linux users which some of my good friends and specifically second couisin are, I chose to use a pre-configured rice (desktop environment customisation) called HyDE. I went with a pre-configured one due to Hyprland being made for you to practically make your own DE/WM from it.
+                </p>
+
+                <p>
+                    HyDE is a really cool Hyprland setup as it does everything for you and comes with everything you need, and has SO MANY AMAZING KEYBINDS. TO name some, Super+A opens the wofi menu (wofi is an application switcher built on rofi, made for wayland), Super+P opens a screenshot selector thing, Super+Shift+P opens a colour picker, Super+(Number) changes your workspace, and there are many more, such as Super+Shift+A opens the customisation menu for the Wofi menu, or SUper+Shift+T opens the theme switcher. The theme switcher comes with a whole new set of wallpapers, waybar config and even a custom GTK2/3 config.
+                    
+                </p>
+
+                <p>
+                    Obviously I did more customisations like adding ChaoticAUR, making my own HyDE theme, changing my Display Manager from SDDM to GDM because I like the appearance and much more. I HIGHLY reccomend installing Arch Linux on a spare laptop or a VM to get used to installing it (you will never be shamed by me for using an installation script) and then configuring it. I would also encorage people to switch to Arch Linux if they value full transparency in whats on your system, customisability, the latest software and full controll. If you have any questions about Arch, DM me on discord or email me!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (matching main page) -->
+    <footer id="connect">
+        <div class="footer-content">
+            <h2 data-aos="fade-up">Let's Connect</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+                Find me on my favorite platforms, or copy my Discord tag to get in touch.
+            </p>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://discord.gg/bwY5cWafJZ" target="_blank" rel="noopener noreferrer" aria-label="Join Sodium's Discord Server"><i class="fab fa-discord"></i><span>Server</span></a>
+                <a href="https://www.reddit.com/user/Icy-Rooster4152/" target="_blank" rel="noopener noreferrer" aria-label="Follow Sodium on Reddit"><i class="fab fa-reddit"></i><span>Reddit</span></a>
+                <a href="#" onclick="copyDiscord(event)" aria-label="Copy Sodium's Discord Username" id="discord-copy-link">
+                    <i class="fas fa-at"></i>
+                    <span id="discord-username-text">sodiumicecream</span>
+                    <span class="tooltip" id="discord-tooltip">Click to Copy</span>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2025 Ivory Hnt. GNU Public Licence | <a href="https://github.com/Ivory-Hnt/sodium-website">View on Github</a></p>
+        </div>
+    </footer>
+
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-in-out',
+            });
+        });
+
+        // Function to copy Discord username to clipboard
+        function copyDiscord(event) {
+            event.preventDefault();
+            const discordUsername = "sodiumicecream";
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = discordUsername;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const tooltip = document.getElementById('discord-tooltip');
+            const usernameText = document.getElementById('discord-username-text');
+
+            tooltip.textContent = 'Copied!';
+            usernameText.textContent = 'Copied to Clipboard!';
+
+            setTimeout(() => {
+                tooltip.textContent = 'Click to Copy';
+                usernameText.textContent = discordUsername;
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
