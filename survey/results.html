@@ -435,10 +435,10 @@
                 new Chart(distroCtx, {
                     type: 'bar',
                     data: {
-                        labels: ['Arch', 'Ubuntu', 'Fedora', 'Debian', 'Manjaro', 'EndeavourOS', 'Other'],
+                        labels: ['Arch', 'Ubuntu', 'Fedora', 'Debian', 'OpenSUSE', 'Gentoo', 'Other'],
                         datasets: [{
                             label: 'Number of Users',
-                            data: [120, 95, 70, 55, 45, 35, 80],
+                            data: [6, 1, 3, 1, 1, 2, 2],
                             backgroundColor: [
                                 'rgba(110, 231, 183, 0.8)',
                                 'rgba(169, 153, 229, 0.8)',
@@ -466,7 +466,7 @@
                         labels: ['13-16', '16-25', '25-37', '37-48', '48-58', '58+'],
                         datasets: [{
                             label: 'Age Group',
-                            data: [30, 180, 165, 85, 30, 10],
+                            data: [3, , 8, 0, 0, 0],
                             backgroundColor: accentColor,
                             borderColor: highlightColor,
                             borderWidth: 1,
@@ -477,25 +477,8 @@
                 });
             }
 
-            // 3. Device Data (Horizontal Bar Chart)
-            const deviceCtx = document.getElementById('deviceChart');
-            if(deviceCtx) {
-                 new Chart(deviceCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['PC', 'Laptop', 'SBC', 'Gaming Handheld', 'Phone', 'Other'],
-                        datasets: [{
-                            label: 'Device Count',
-                            data: [350, 310, 90, 75, 40, 20],
-                            backgroundColor: highlightColor,
-                            borderColor: accentColor,
-                            borderWidth: 1,
-                            borderRadius: 4
-                        }]
-                    },
-                    options: { ...barChartOptions, indexAxis: 'y' }
-                });
-            }
+            // 3. Device Data (Horizontal Bar Chart) (DATA LOST)
+            
 
             // 4. Experience Data (Vertical Bar Chart)
             const expCtx = document.getElementById('experienceChart');
@@ -506,7 +489,7 @@
                         labels: ['< 1 year', '1-3 years', '3-5 years', '5-10 years', '10+ years'],
                         datasets: [{
                             label: 'Years of Experience',
-                            data: [60, 150, 120, 100, 70],
+                            data: [3, 7, 1, 1, 1],
                             backgroundColor: accentColor,
                             borderColor: highlightColor,
                             borderWidth: 1,
@@ -525,7 +508,7 @@
                     data: {
                         labels: ['Yes', 'No', 'No Answer'],
                         datasets: [{
-                            data: [220, 260, 20],
+                            data: [1, 11, 1],
                             backgroundColor: [highlightColor, accentColor, textColor],
                             borderColor: 'var(--primary-bg)',
                             borderWidth: 3
@@ -543,7 +526,7 @@
                     data: {
                         labels: ['Yes', 'No', 'No Answer'],
                         datasets: [{
-                            data: [50, 440, 10],
+                            data: [1, 11, 2],
                             backgroundColor: [highlightColor, accentColor, textColor],
                             borderColor: 'var(--primary-bg)',
                             borderWidth: 3
@@ -561,7 +544,7 @@
                     data: {
                         labels: ['Yes', 'No', 'No Answer'],
                         datasets: [{
-                            data: [150, 280, 70],
+                            data: [7, 5, 2],
                             backgroundColor: [highlightColor, accentColor, textColor],
                             borderColor: 'var(--primary-bg)',
                             borderWidth: 3
@@ -579,7 +562,7 @@
                     data: {
                         labels: ['Yes', 'No', 'No Answer'],
                         datasets: [{
-                            data: [90, 390, 20],
+                            data: [2, 12, 0],
                             backgroundColor: [highlightColor, accentColor, textColor],
                             borderColor: 'var(--primary-bg)',
                             borderWidth: 3
