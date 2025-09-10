@@ -224,6 +224,25 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-color);
+        }
+
+        .back-link i {
+            font-size: 1.2rem;
+        }
+
         
         .chart-container:hover {
             transform: translateY(-5px);
@@ -276,10 +295,8 @@
 
     <header>
         <nav>
-            <a href="#" class="logo" aria-label="Sodium Report Home">SR</a>
-            <a href="#connect" class="nav-link" aria-label="Connect">
-                <span>Connect</span>
-            </a>
+            <a href="#" class="logo" aria-label="Sodium Report Home">.</a>
+            <a href="/" class="back-link" aria-label="Back to Portfolio"></a>
         </nav>
     </header>
 
