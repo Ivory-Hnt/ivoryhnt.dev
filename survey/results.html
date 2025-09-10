@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Sodium Report | 2025-1</title>
+    <meta name="title" content="The Sodium Report | 2025-1 Survey Results">
+    <meta name="description" content="Visualized data and key insights from the first bi-annual Sodium survey on Linux users.">
+    <meta name="keywords" content="Sodium Report, Linux, survey, data visualization, user statistics, linux distro">
+    <meta name="author" content="Ivory Hnt">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables matching original theme --- */
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #0f0f0f;
+            --text-color: #F0F0F0;
+            --text-secondary: #b0aec0;
+            --accent-color: #A999E5;
+            --highlight-color: #6EE7B7;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- General & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--highlight-color);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(15, 15, 15, 0.6) 50%, rgba(26, 26, 26, 0.6) 100%);
+            background-size: 400% 400%;
+            animation: liquidFlow 20s ease infinite alternate;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        @keyframes liquidFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--highlight-color);
+            border-color: var(--highlight-color);
+            transform: rotate(360deg);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            padding: 0 5%;
+        }
+
+        #hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+        }
+
+        #hero .subtitle {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            color: var(--accent-color);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--highlight-color);
+            color: var(--primary-bg);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: #5ce0b0;
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn i {
+            font-size: 1.2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        /* --- Results & Charts Section --- */
+        #results {
+            background-color: var(--secondary-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 60ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .chart-container {
+            background-color: var(--primary-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .chart-container:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .chart-container h3 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-left: 3px solid var(--highlight-color);
+            padding-left: 1rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 350px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 5%;
+            background: var(--secondary-bg);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 8%;
+            }
+             .section-title h2 {
+                font-size: 2.5rem;
+            }
+            .charts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo" aria-label="Sodium Report Home">SR</a>
+            <a href="#connect" class="nav-link" aria-label="Connect">
+                <span>Connect</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1 data-aos="fade-down">The Sodium Report</h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-delay="200">2025-1 Survey Results</p>
+                <a href="#results" class="cta-btn" data-aos="fade-up" data-aos-delay="400" aria-label="Scroll to results">
+                    <span>View Data</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="results">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Survey Insights</h2>
+                <p>This is an overview of the Linux community over quite a few responses. As always, data may be not be 100% accurate.</p>
+            </div>
+            
+            <div class="charts-grid">
+                <div class="chart-container" data-aos="fade-up">
+                    <h3>Primary Linux Distribution</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="distroChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Age of Users</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up" data-aos-delay="100">
+                    <h3>What devices do you run Linux on?</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="deviceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Years Using Linux</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="experienceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up">
+                    <h3>Do you dualboot with Windows?</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="dualbootChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Do you use an antivirus with Linux?</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="antivirusChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up">
+                    <h3>Do you identify as LGBTQ+?</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="lgbtqChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Went through a "neon icons" phase?</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="garudaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="connect">
+        <p class="copyright">&copy; 2025 Ivory Hnt. GNU Public Licence | <a href="https://github.com/Ivory-Hnt/sodium-website" target="_blank" rel="noopener noreferrer">View on Github</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+                easing: 'ease-in-out',
+            });
+
+            // --- CHART DATA & CONFIGURATION ---
+
+            const textColor = '#b0aec0';
+            const gridColor = 'rgba(176, 174, 192, 0.1)';
+            const accentColor = '#A999E5';
+            const highlightColor = '#6EE7B7';
+
+            // Base chart options for consistency
+            const barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 15, 15, 0.8)',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4,
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: textColor, font: { size: 12 } },
+                        grid: { color: gridColor }
+                    },
+                    y: {
+                        ticks: { color: textColor, font: { size: 12 } },
+                        grid: { color: gridColor },
+                        beginAtZero: true
+                    }
+                }
+            };
+            
+            const doughnutChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { 
+                            color: textColor, 
+                            font: { size: 12 },
+                            padding: 20
+                        }
+                    }
+                },
+                cutout: '60%'
+            };
+
+            // 1. Linux Distro Data (Horizontal Bar Chart)
+            const distroCtx = document.getElementById('distroChart');
+            if (distroCtx) {
+                new Chart(distroCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Arch', 'Ubuntu', 'Fedora', 'Debian', 'Manjaro', 'EndeavourOS', 'Other'],
+                        datasets: [{
+                            label: 'Number of Users',
+                            data: [120, 95, 70, 55, 45, 35, 80],
+                            backgroundColor: [
+                                'rgba(110, 231, 183, 0.8)',
+                                'rgba(169, 153, 229, 0.8)',
+                                'rgba(110, 231, 183, 0.7)',
+                                'rgba(169, 153, 229, 0.7)',
+                                'rgba(110, 231, 183, 0.6)',
+                                'rgba(169, 153, 229, 0.6)',
+                                'rgba(176, 174, 192, 0.5)'
+                            ],
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: { ...barChartOptions, indexAxis: 'y' }
+                });
+            }
+
+            // 2. Age Data (Vertical Bar Chart)
+            const ageCtx = document.getElementById('ageChart');
+            if(ageCtx) {
+                new Chart(ageCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['13-16', '16-25', '25-37', '37-48', '48-58', '58+'],
+                        datasets: [{
+                            label: 'Age Group',
+                            data: [30, 180, 165, 85, 30, 10],
+                            backgroundColor: accentColor,
+                            borderColor: highlightColor,
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: barChartOptions
+                });
+            }
+
+            // 3. Device Data (Horizontal Bar Chart)
+            const deviceCtx = document.getElementById('deviceChart');
+            if(deviceCtx) {
+                 new Chart(deviceCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['PC', 'Laptop', 'SBC', 'Gaming Handheld', 'Phone', 'Other'],
+                        datasets: [{
+                            label: 'Device Count',
+                            data: [350, 310, 90, 75, 40, 20],
+                            backgroundColor: highlightColor,
+                            borderColor: accentColor,
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: { ...barChartOptions, indexAxis: 'y' }
+                });
+            }
+
+            // 4. Experience Data (Vertical Bar Chart)
+            const expCtx = document.getElementById('experienceChart');
+            if (expCtx) {
+                new Chart(expCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['< 1 year', '1-3 years', '3-5 years', '5-10 years', '10+ years'],
+                        datasets: [{
+                            label: 'Years of Experience',
+                            data: [60, 150, 120, 100, 70],
+                            backgroundColor: accentColor,
+                            borderColor: highlightColor,
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: barChartOptions
+                });
+            }
+
+            // 5. Dualboot Data (Doughnut Chart)
+            const dualbootCtx = document.getElementById('dualbootChart');
+            if (dualbootCtx) {
+                new Chart(dualbootCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Yes', 'No', 'No Answer'],
+                        datasets: [{
+                            data: [220, 260, 20],
+                            backgroundColor: [highlightColor, accentColor, textColor],
+                            borderColor: 'var(--primary-bg)',
+                            borderWidth: 3
+                        }]
+                    },
+                    options: doughnutChartOptions
+                });
+            }
+
+            // 6. Antivirus Data (Doughnut Chart)
+            const antivirusCtx = document.getElementById('antivirusChart');
+             if (antivirusCtx) {
+                new Chart(antivirusCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Yes', 'No', 'No Answer'],
+                        datasets: [{
+                            data: [50, 440, 10],
+                            backgroundColor: [highlightColor, accentColor, textColor],
+                            borderColor: 'var(--primary-bg)',
+                            borderWidth: 3
+                        }]
+                    },
+                    options: doughnutChartOptions
+                });
+            }
+
+             // 7. LGBTQ+ Data (Doughnut Chart)
+            const lgbtqCtx = document.getElementById('lgbtqChart');
+             if (lgbtqCtx) {
+                new Chart(lgbtqCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Yes', 'No', 'No Answer'],
+                        datasets: [{
+                            data: [150, 280, 70],
+                            backgroundColor: [highlightColor, accentColor, textColor],
+                            borderColor: 'var(--primary-bg)',
+                            borderWidth: 3
+                        }]
+                    },
+                    options: doughnutChartOptions
+                });
+            }
+
+            // 8. Garuda Icons Data (Doughnut Chart)
+            const garudaCtx = document.getElementById('garudaChart');
+             if (garudaCtx) {
+                new Chart(garudaCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Yes', 'No', 'No Answer'],
+                        datasets: [{
+                            data: [90, 390, 20],
+                            backgroundColor: [highlightColor, accentColor, textColor],
+                            borderColor: 'var(--primary-bg)',
+                            borderWidth: 3
+                        }]
+                    },
+                    options: doughnutChartOptions
+                });
+            }
+        });
+    </script>
+</body>
+</html>
