@@ -758,7 +758,6 @@
             // Show loading skeletons
             showLoadingState();
 
-            // Simulate loading delay (remove this in real implementation)
             setTimeout(() => {
                 // Get 12 random photos
                 const shuffled = [...availablePhotos].sort(() => Math.random() - 0.5);
@@ -782,7 +781,6 @@
             const photoGrid = document.getElementById('photoGrid');
             photoGrid.innerHTML = '';
 
-            // Create 12 loading skeletons
             for (let i = 0; i < 12; i++) {
                 const skeleton = document.createElement('div');
                 skeleton.className = 'loading-skeleton';
