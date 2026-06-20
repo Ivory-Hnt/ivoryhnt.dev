@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Adjust this if your repo structure differs.
+// Adjust this if your repo structure differs.a
 const PHOTOS_DIR = path.join(__dirname, 'images', 'mp-26');
 const MANIFEST_PATH = path.join(PHOTOS_DIR, 'manifest.json');
 
