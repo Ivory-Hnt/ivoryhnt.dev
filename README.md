@@ -1,6 +1,6 @@
 # My Personal Website
 
-This is my personal website. Feel free to do what you would like with it. All the CSS is inside the HTML files, and it uses some tailwind and fontawesome icons.
+This is my personal website. Feel free to do what you would like with it. All the CSS is inside the HTML files, and it uses some tailwind and fontawesome icons. Grr
 
 ## Notice
 
