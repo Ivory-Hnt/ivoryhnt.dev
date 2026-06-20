@@ -1,0 +1,28 @@
+# Auto-regenerates images/mp-26/manifest.json whenever I push new photos. Hopefully?
+
+name: Update Pride photo manifest
+
+on:
+  push:
+    paths:
+      - 'images/mp-26/**'
+      - '!images/mp-26/manifest.json'
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate manifest
+        run: node generate-manifest.js
+
+      - name: Commit manifest if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add images/mp-26/manifest.json
+          git diff --staged --quiet || git commit -m "chore: update Pride 2026 photo manifest"
+          git push
